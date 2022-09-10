@@ -18,7 +18,7 @@ int main(void)
 		{
 			for (z = 2; z < 10; z++)
 			{
-				if ( z > y && y > x)
+				if (z > y && y > x)
 				{
 				putchar(z % 10 + '0');
 				putchar(y % 10 + '0');
@@ -27,6 +27,7 @@ int main(void)
 				{
 					putchar(',');
 					putchar(' ');
+				}
 				}
 			}
 		}
