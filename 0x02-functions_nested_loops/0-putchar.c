@@ -1,11 +1,19 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
- * main - prints _putchar
- *
- * Return: 0 (success)
+ * main - print putchar followed by a new line
+ * Return: 0
 */
+int main(void)
 {
-	switch(printf("_putchar\n"))
-	return 0;
+	_putchar('_');
+	_putchar('p');
+	_putchar('U');
+	_putchar('t');
+	_putchar('c');
+	_putchar('h');
+	_putchar('a');
+	_putchar('r');
+
+	return (0);
 }
