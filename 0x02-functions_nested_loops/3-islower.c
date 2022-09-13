@@ -2,7 +2,7 @@
 
 /**
  * _islower - function that checks for lowercase character
- * @c - the int we'll use for the function urguement
+ * @c: is the int we'll use for the function urguement
  *Return: 0
 */
 int _islower(int c)
