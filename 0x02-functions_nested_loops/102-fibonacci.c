@@ -1,10 +1,9 @@
 #include <stdio.h>
 
 /**
- * main - prints the first 50 Fibonacci numbers,
- * starting with 1 and 2
- *
- * Return : 0
+ * main - prints out the first 50
+ * fibonacci suit numbers
+ * Return: return 0
 */
 int main(void)
 {
@@ -13,17 +12,17 @@ int main(void)
 
 	for (inc = 0; inc < 50; inc++)
 	{
-		n3 = n1 + n2
+		n3 = n1 + n2;
 			printf("%lu", n3);
-		n1 = n2
-		n2 = n3
+		n1 = n2;
+		n2 = n3;
 
 	if (inc == 49)
 		printf("\n");
 	else
 		printf(", ");
 	}
-	return (0)
+	return (0);
 }
 
 
