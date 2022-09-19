@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -5,7 +6,7 @@
  * @str: string to be printed
  *
  * Return: void
- **/
+*/
 void puts2(char *str)
 {
 int i = 0;
