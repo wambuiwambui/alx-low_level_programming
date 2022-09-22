@@ -1,33 +1,22 @@
 #include "main.h"
+#include <stdio.h>
 /**
- * print_number - prints an integer.
- * @n: input integer.
- * Return: void.
+ * reverse_array - reverses the content of an array of integers.
+ * @a: input integer
+ * @n: number of elements of the array
+ * Return: nothing
  */
-void print_number(int n)
+void reverse_array(int *a, int n)
 {
-	unsigned int x, y, z;
+	int x, y, sw;
 
-	if (n < 0)
-	{
-		_putchar(45);
-		x = n * -1;
-	}
-	else
-	{
-		x = n;
-	}
-	y = x;
-	z = 1;
+	y = n - 1;
 
-	while (y > 9)
+	for (x = 0; x < n / 2; x++)
 	{
-		y /= 10;
-		z *= 10;
-	}
-
-	for (; z >= 1; z /= 10)
-	{
-		_putchar(((x / z) % 10) + 48);
+		sw = a[x];
+		a[x] = a[y];
+		a[y--] = sw;
 	}
 }
+
