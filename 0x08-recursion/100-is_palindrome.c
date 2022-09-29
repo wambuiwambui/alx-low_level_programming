@@ -31,6 +31,7 @@ void check(char *s, int first, int end, int *tag)
 			*tag *= 1;
 		else
 			*tag *= 0;
+		check(s, first + 1, end - 1, tag);
 	}
 }
 
