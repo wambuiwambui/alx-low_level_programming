@@ -1,60 +1,61 @@
 #include "search_algos.h"
+
+
 /**
- * print_array - prints the array
- * @array: pointer to first element of array
- * @left: left index
- * @right: right index
- * Return: void
+ * print_array - prints array separated by commas
+ * @array: the array to be printedd
+ * @size: size of the array
  */
-void print_array(int *array, int left, int right)
+void print_array(int *array, size_t size)
 {
-	int i;
+	size_t i = 0;
 
-	printf("Searching in array: ");
-
-	for (i = left; i < right; i++)
-	{
-		printf("%d, ", array[i]);
-	}
-	printf("%d\n", array[i]);
-}
-/**
- * recurse_array - iterates array recursively to find index of value
- * @array: the array
- * @left: left index
- * @right: right index
- * @value: value to search for
- * Return: index of value
- */
-int recurse_array(int *array, int left, int right, int value)
-{
-	int mid;
-
-	print_array(array, left, right);
-	mid = (left + right) / 2;
-
-	if (array[mid] == value)
-		return (mid);
-	if (left == right)
-		return (-1);
-	if (value > array[mid])
-		return (recurse_array(array, mid + 1, right, value));
-	else
-		return (recurse_array(array, left, mid - 1, value));
+	for ( ; i < size - 1; i++)
+		printf("%i, ", array[i]);
+	printf("%i\n", array[i]);
 }
 
 /**
- * binary_search -  searches for a value in a sorted array of integers
- * using the Binary search algorithm
- * @array: a pointer to the first element of the array to search in
- * @size: the number of elements in array
- * @value: the value to search for
- * Return: the index where value is located
+ * binary_search - an implementation of the binary search
+ *                 algorithm, where the items are sorted
+ *                 and no element is repeated
+ * @array: the array to be searched
+ * @size: the size of the array
+ * @value: the  value of which's location is being searched for
+ * Return: the first location of value inside array or -1 if
+ *          it can't be found
  */
 int binary_search(int *array, size_t size, int value)
 {
-	if (!array)
+	size_t mid = size / 2;
+	int loc;
+
+
+	if (size == 0 || !array)
 		return (-1);
 
-	return (recurse_array(array, 0, size - 1, value));
+	printf("Searching in array: ");
+	print_array(array, size);
+
+	/*Base case*/
+	if (size == 1 && array[0] != value)
+		return (-1);
+
+	if (size % 2  == 0)
+		mid -= 1;
+
+	/*main case*/
+	if (array[mid] > value)
+		return (binary_search(array, mid, value));
+	else if (array[mid] < value)
+	{
+		if (size % 2  == 0)
+			mid = mid + 1;
+		loc = binary_search(array + mid + ((size  % 2 == 0) ? 0 : 1), mid, value);
+		if (loc == -1)
+			return (-1);
+		return (loc + mid);
+	}
+
+	return (mid);
 }
